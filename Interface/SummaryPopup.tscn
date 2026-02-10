@@ -1,0 +1,183 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Interface/BaseTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Graphics/Fonts/Tinonium Black.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Interface/SummaryPopup.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.121569, 0.121569, 0.168627, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0862745, 0.270588, 0.0235294, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.133333, 0.4, 0.0431373, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="SummaryPopup" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.870588 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_top = 46.0
+margin_right = 150.0
+margin_bottom = 406.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Heading" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -96.0
+margin_top = 22.0
+margin_right = 96.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
+text = "Lifetime Stats"
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -99.0
+margin_right = 110.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 200, 0 )
+columns = 2
+
+[node name="CompletedLabel" type="Label" parent="Panel/GridContainer"]
+margin_right = 105.0
+margin_bottom = 20.0
+text = "Completed:"
+
+[node name="CompletedCount" type="Label" parent="Panel/GridContainer"]
+margin_left = 109.0
+margin_right = 209.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="GoldLabel" type="Label" parent="Panel/GridContainer"]
+margin_top = 24.0
+margin_right = 105.0
+margin_bottom = 44.0
+text = "Gold:"
+
+[node name="GoldCount" type="Label" parent="Panel/GridContainer"]
+margin_left = 109.0
+margin_top = 24.0
+margin_right = 209.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="SilverLabel" type="Label" parent="Panel/GridContainer"]
+margin_top = 48.0
+margin_right = 105.0
+margin_bottom = 68.0
+text = "Silver:"
+
+[node name="SilverCount" type="Label" parent="Panel/GridContainer"]
+margin_left = 109.0
+margin_top = 48.0
+margin_right = 209.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="BronzeLabel" type="Label" parent="Panel/GridContainer"]
+margin_top = 72.0
+margin_right = 105.0
+margin_bottom = 92.0
+text = "Bronze:"
+
+[node name="BronzeCount" type="Label" parent="Panel/GridContainer"]
+margin_left = 109.0
+margin_top = 72.0
+margin_right = 209.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="StreakLabel" type="Label" parent="Panel/GridContainer"]
+margin_top = 96.0
+margin_right = 105.0
+margin_bottom = 116.0
+text = "Current Streak:"
+
+[node name="StreakCount" type="Label" parent="Panel/GridContainer"]
+margin_left = 109.0
+margin_top = 96.0
+margin_right = 209.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="ShareButton" type="Button" parent="Panel"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -99.5
+margin_top = -123.0
+margin_right = 100.5
+margin_bottom = -73.0
+rect_min_size = Vector2( 200, 50 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+text = "Share Today's Score"
+
+[node name="Timer" type="Timer" parent="Panel/ShareButton"]
+wait_time = 2.0
+one_shot = true
+
+[node name="HideButton" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -22.0
+margin_top = -36.0
+margin_right = 22.0
+margin_bottom = -10.0
+text = "Hide"
+
+[connection signal="about_to_show" from="." to="." method="_on_SummaryPopup_about_to_show"]
+[connection signal="pressed" from="Panel/ShareButton" to="." method="_on_ShareButton_pressed"]
+[connection signal="timeout" from="Panel/ShareButton/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Panel/HideButton" to="." method="_on_HideButton_pressed"]

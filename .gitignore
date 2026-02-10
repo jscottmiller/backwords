@@ -1,0 +1,9 @@
+.import/
+.godot/
+Exports/
+*.tmp
+*:Zone.Identifier
+
+# Fonts (commercial, not redistributable)
+Graphics/Fonts/*.otf
+Graphics/Fonts/*.ttf

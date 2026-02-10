@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Puzzles/Letter.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Fonts/Salis MVB Medium.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Letter" type="Button" groups=["Inputs", "Letters"]]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+action_mode = 0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.819608, 0.819608, 0.819608, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.211765, 0.211765, 0.211765, 1 )
+
+[node name="Letter" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -17.0
+margin_right = 20.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 1 )
+text = "A"
+align = 1
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -22.0
+margin_top = -18.0
+margin_right = -2.0
+margin_bottom = -4.0
+text = "2"
+align = 2
+
+[node name="Incorrect" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -18.0
+margin_right = 22.0
+margin_bottom = -4.0
+custom_colors/font_color = Color( 0.745098, 0, 0, 1 )
+text = "X"
+
+[connection signal="pressed" from="." to="." method="_on_Letter_pressed"]

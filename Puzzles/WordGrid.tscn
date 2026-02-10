@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Puzzles/WordGrid.gd" type="Script" id=1]
+[ext_resource path="res://Interface/BaseTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Puzzles/WordLine.tscn" type="PackedScene" id=3]
+
+[node name="WordGrid" type="VBoxContainer"]
+margin_right = 404.0
+margin_bottom = 404.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="StartingLine" parent="." instance=ExtResource( 3 )]
+margin_right = 404.0
+
+[node name="Lines" type="VBoxContainer" parent="."]
+margin_top = 52.0
+margin_right = 404.0
+margin_bottom = 308.0
+
+[node name="WordLine0" parent="Lines" instance=ExtResource( 3 )]
+margin_right = 404.0
+
+[node name="WordLine1" parent="Lines" instance=ExtResource( 3 )]
+margin_top = 52.0
+margin_right = 404.0
+margin_bottom = 100.0
+
+[node name="WordLine2" parent="Lines" instance=ExtResource( 3 )]
+margin_top = 104.0
+margin_right = 404.0
+margin_bottom = 152.0
+
+[node name="WordLine3" parent="Lines" instance=ExtResource( 3 )]
+margin_top = 156.0
+margin_right = 404.0
+margin_bottom = 204.0
+
+[node name="WordLine4" parent="Lines" instance=ExtResource( 3 )]
+margin_top = 208.0
+margin_right = 404.0
+margin_bottom = 256.0
