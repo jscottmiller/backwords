@@ -2,6 +2,8 @@
 
 A word puzzle game combining Wordle-style deduction with Scrabble scoring.
 
+> **Note:** This README was generated with AI. The game itself was not — it was designed, coded, and shipped by hand.
+
 [![Gameplay Video](https://img.youtube.com/vi/-ihoI_oQVUs/maxresdefault.jpg)](https://www.youtube.com/watch?v=-ihoI_oQVUs)
 
 [▶ Watch gameplay video](https://www.youtube.com/watch?v=-ihoI_oQVUs)
